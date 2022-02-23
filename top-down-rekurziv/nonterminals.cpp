@@ -27,7 +27,7 @@ vector<nonterminals> nonterminals::initRules(vector<string> g){
 			tempVec->push_back(nonterminals(*it));
 		}
 	}
-	std::cout << tempVec->size() << std::endl;
+	//std::cout << tempVec->size() << std::endl;
 	
 	return *tempVec;
 }

@@ -24,9 +24,16 @@ void illustrateRules(vector<nonterminals> nv) {
 	}
 }
 
-//Itt kezdodhet a megoldas rekurzioval **************
-//Kiegeszitendo: az S->SS tipusu szabalyokhoz kell irnom egy feltetelt,
-//hogy ne lepje tul a VART stringinput meretet, ezzel elkerulve a vegtelen memoriafoglalast
+/*
+Itt kezdodhet a megoldas rekurzioval -------------------------------------------------------------------------------------------
+Kiegeszitendo: az S->SS tipusu szabalyokhoz kell irnom egy feltetelt,
+hogy ne lepje tul a VART stringinput meretet, ezzel elkerulve a vegtelen memoriafoglalast
+
+A --- jelzések közötti algoritmus rekurzióra épül,
+a szoftver többi része teljesen moduláris,
+felhasználható iterációs megoldásra is
+*/
+
 vector<nonterminals>::iterator SS;
 string tempstring;
 bool solve(string s, int altpointer, int charpointer, vector<string> alts) {
@@ -50,7 +57,7 @@ bool solve(string s, int altpointer, int charpointer, vector<string> alts) {
 	
 	return false;
 }
-//***************************************************
+//-------------------------------------------------------------------------------------------------------------------------------
 int main(){
 	
 	ruleVector = nonterminals::initRules(NonTerminalInput);
