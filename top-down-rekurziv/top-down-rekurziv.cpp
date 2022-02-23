@@ -1,6 +1,7 @@
 #include <iostream>
 #include "nonterminals.h"
 #include <vector>
+
 using namespace std;
 vector<nonterminals> ruleVector;
 vector<string> NonTerminalInput = { "S","A","B" };
@@ -24,7 +25,8 @@ void illustrateRules(vector<nonterminals> nv) {
 }
 
 //Itt kezdodhet a megoldas rekurzioval **************
-
+//Kiegeszitendo: az S->SS tipusu szabalyokhoz kell irnom egy feltetelt,
+//hogy ne lepje tul a VART stringinput meretet, ezzel elkerulve a vegtelen memoriafoglalast
 vector<nonterminals>::iterator SS;
 string tempstring;
 bool solve(string s, int altpointer, int charpointer, vector<string> alts) {
