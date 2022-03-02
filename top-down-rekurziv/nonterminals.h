@@ -8,6 +8,8 @@ class nonterminals{
 private:
 	vector<string>* alters;
 	void addAlter(string Alter);
+	string getSym();
+	vector<string> getAlters();
 public:
 	string* sym;
 	static vector<nonterminals>initRules(vector<string> g);
@@ -16,7 +18,7 @@ public:
 		sym = new string(base);
 		alters = new vector<string>;
 	}
-	string getSym();
-	vector<string> getAlters();
+	
+
 };
 
