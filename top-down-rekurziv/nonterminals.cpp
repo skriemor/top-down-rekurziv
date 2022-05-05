@@ -19,7 +19,8 @@ bool contains(vector<nonterminals>& convec, string s) {
 
 }
 
-vector<nonterminals> nonterminals::initRules(vector<string> g){
+
+vector<nonterminals> nonterminals::initSyms(vector<string> g){
 	vector<nonterminals>* tempVec = new vector<nonterminals>();
 	
 	for (auto it = g.begin(); it != g.end(); it++) {
@@ -46,3 +47,26 @@ void nonterminals::processRules(vector<nonterminals>& rV,vector<string> rules) {
 }
 
 
+void nonterminals::illustrateRules(vector<nonterminals> nv) {
+	string ruleList;
+	cout << endl;
+	for (auto v : nv) {
+		for (auto b : v.getAlters()) {
+			ruleList += b + " | ";
+		}
+		ruleList.erase(ruleList.end() - 3, ruleList.end() - 1);
+		cout << v.getSym() << " -> " << ruleList << endl;
+		ruleList = "";
+	}
+}
+
+bool nonterminals::hasTerminal(string f) {
+	auto alties = this->getAlters();
+	return find(alties.begin(), alties.end(), f) != alties.end();
+}
+
+vector<string> nonterminals::ParentSymsOfTerminal(string f, vector<nonterminals>& rulez) {
+	vector<string> SymbolsOfTerminal = vector<string>();
+	for (auto s : rulez) if (s.hasTerminal(f)) SymbolsOfTerminal.push_back(s.getSym());
+	return SymbolsOfTerminal;
+}
